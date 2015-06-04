@@ -1,0 +1,19 @@
+server {
+	listen       80;
+    server_name  localhost;
+    root   /var/www/htdocs/;
+
+    location / {
+    	index  index.php;
+    	expires 1y;
+    }
+
+    location ~ \.php$ {
+    	root           /var/www/htdocs/;
+        fastcgi_pass   unix:/var/run/php5-fpm.sock;
+        fastcgi_index  index.php;
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        include        fastcgi_params;
+    }
+}
+

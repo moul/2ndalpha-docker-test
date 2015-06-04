@@ -1,6 +1,20 @@
 language: php
 sudo: true
 
+env:
+  global:
+    - QUIET=0
+    - UML_FIG=0
+    - UML_DOCKERCOMPOSE=1
+  matrix:
+    - BRANCH=v1.0.0
+    - BRANCH=stable
+    - BRANCH=develop DOCKER_BACKEND_FS=tmpfs DOCKER_STORAGE_DRIVER=aufs
+    - BRANCH=develop DOCKER_BACKEND_FS=tmpfs DOCKER_STORAGE_DRIVER=devicemapper
+    - BRANCH=develop DOCKER_BACKEND_FS=tmpfs DOCKER_STORAGE_DRIVER=vfs
+    - BRANCH=develop DOCKER_BACKEND_FS=host  DOCKER_STORAGE_DRIVER=devicemapper
+    - BRANCH=develop DOCKER_BACKEND_FS=host  DOCKER_STORAGE_DRIVER=vfs
+
 install:
   - curl -sLo - http://j.mp/install-travis-docker | sh -xe
 

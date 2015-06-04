@@ -8,7 +8,6 @@ env:
     - UML_DOCKERCOMPOSE=1
   matrix:
     - BRANCH=v1.0.0
-    - BRANCH=stable
     - BRANCH=develop DOCKER_BACKEND_FS=tmpfs DOCKER_STORAGE_DRIVER=aufs
     - BRANCH=develop DOCKER_BACKEND_FS=tmpfs DOCKER_STORAGE_DRIVER=devicemapper
     - BRANCH=develop DOCKER_BACKEND_FS=tmpfs DOCKER_STORAGE_DRIVER=vfs

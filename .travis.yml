@@ -13,6 +13,12 @@ env:
     - BRANCH=develop DOCKER_BACKEND_FS=tmpfs DOCKER_STORAGE_DRIVER=vfs
     - BRANCH=develop DOCKER_BACKEND_FS=host  DOCKER_STORAGE_DRIVER=devicemapper
     - BRANCH=develop DOCKER_BACKEND_FS=host  DOCKER_STORAGE_DRIVER=vfs
+    # broken matrix
+    - BRANCH=develop DOCKER_BACKEND_FS=tmpfs DOCKER_STORAGE_DRIVER=btrfs
+    - BRANCH=develop DOCKER_BACKEND_FS=tmpfs DOCKER_STORAGE_DRIVER=overlay
+    - BRANCH=develop DOCKER_BACKEND_FS=host  DOCKER_STORAGE_DRIVER=aufs
+    - BRANCH=develop DOCKER_BACKEND_FS=host  DOCKER_STORAGE_DRIVER=btrfs
+    - BRANCH=develop DOCKER_BACKEND_FS=host  DOCKER_STORAGE_DRIVER=overlay
 
 install:
   - curl -sLo - http://j.mp/install-travis-docker | sh -xe
